@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="..\static\result.css"/>
+    <title>Result</title>
+</head>
+<body>
+    <div class="wrapper col-xs-12">
+        <div class="search-results-container col-xs-4 col-xs-offset-4">
+          <ul id="title-results">
+            <li data-uri="/collection/sec.input-folder">
+              <a href="#">Name: {{name}}</a>
+            </li>
+            <li data-uri="/process/advanced-routing/sec.color-route">
+              <a href="#">Country to Visit: {{place}}</a>
+            </li>
+            <li data-uri="/process/advanced-routing/sec.color-route">
+              <a href="#">Type of Vacation: {{type}}</a>
+            </li>
+          </ul>
+          <div class="content-results">
+            {% for  i in check %}
+            <div class="section">
+              <div class="section-title col-xs-12">
+                <span class="name"> {{i}} </span>
+              </div>
+              <div class="page col-xs-12">
+                <div class="page-title">
+                  <a href="#"> {{i}} </a>
+                </div>
+                <ul class="page-results">
+                    {% for key, value in result.items() %}
+                     
+                  <li>
+                    <a href="#">
+                      <!-- <p class="heading">{{value}}</p> -->
+                      <p class="snippet" id="p1">{{value}}</p>
+                    </a>
+                  </li>
+                  <!-- <script>
+                    var v = document.getElementById("p1")
+                    var array = v.split(" ")
+                    var ad=""
+                    for(let i=0; i<array.length(); i++){
+                        if(array[i] == "Romantic" ){
+                            ad = v.substring(2,i)
+                        }
+                    }
+                    // document.getElementById("p1").innerHTML = ad;
+                  </script> -->
+                
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endfor %}
+                         
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>

@@ -8,8 +8,31 @@
     <title>Travel Guide</title>
 </head>
 <body>
+
+  <!-- <script>
+    function myFunction() {
+    var place= $('#place').val();
+    var city= $('#city').val();
+    var check= $('#check').val();
+      $.ajax({
+                  url: "/result",
+                  type: "POST",
+                  data: {place: place, city: city, check: check
+                  }
+              }).done(function(response) {
+                var html= "<br><br><br><p> <b> RESULT : <b><p>";
+                response =response.result;
+                     $.each(response,function(key,val){
+                     console.log(val);
+                        html+="<p>"+val+"<p>"
+                    });
+                    html +="<br>";
+                    $(".show-data").append(html);
+                });
+    };
+      </script> -->
     <div class="container">
-        <form action='{{ url_for("index")}}' method="POST">
+        <form action='{{ url_for("result")}}' method="POST">
       
           <label for="fname">First Name</label>
           <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -266,48 +289,51 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
 
+          <label for="fname">City</label>
+          <input type="text" id="city" name="city" placeholder="Any particular city in your selected Country(Optional)">
+
             <fieldset>
               <legend>Type of vacation you want</legend>
           
               <div>
-                <input type="checkbox" id="horns" name="check" checked>
+                <input type="checkbox" id="horns" name="check" value="Adventurous" checked>
                 <label for="adventure">Adventurous</label>
               </div>
           
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Romantic">
                 <label for="romantic">Romantic</label>
               </div>
 
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Peaceful">
                 <label for="peaceful">Peaceful</label>
               </div>
 
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Sea-side">
                 <label for="sea-side">Sea-side</label>
               </div>
 
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Mountains">
                 <label for="mountain">Mountains</label>
               </div>
 
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Hill Station">
                 <label for="hill">Hill Station</label>
               </div>
 
               <div>
-                <input type="checkbox" id="horns" name="check">
+                <input type="checkbox" id="horns" name="check" value="Religious">
                 <label for="religious">Religious</label>
               </div>
           </fieldset>
           <br>
           
       
-          <button type="submit" value="Submit">Submit</button>
+          <button type="submit" value="Submit" >Submit</button>
       
         </form>
       </div>
